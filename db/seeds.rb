@@ -10,7 +10,11 @@ Airport.create([{ name: "San Francisco", code: "SFO" }, { name: "New York", code
 
 Flight.create!([
   {departing_airport: Airport.find_by!(code: "SFO"),
-  arriving_airport: Airport.find_by!(code: "NYC")},
+  arriving_airport: Airport.find_by!(code: "NYC"),
+  start: DateTime.new(2023,12,3),
+  duration_minutes: 330 },
   {departing_airport: Airport.find_by!(code: "NYC"),
-  arriving_airport: Airport.find_by!(code: "SFO")}]
+  arriving_airport: Airport.find_by!(code: "SFO"),
+  start: DateTime.new(2023,12,4),
+  duration_minutes: 330 }]
 )

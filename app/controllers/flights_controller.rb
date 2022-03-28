@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
   def index
+    @flights = Flight.all
     @airport_options = Airport.all.map{ |airport| [ airport.name, airport.id ] }
     if flight_params.empty?
       @flight_results = []
@@ -11,6 +12,6 @@ class FlightsController < ApplicationController
   private 
 
   def flight_params
-    params.permit(:departing_airport_id, :arriving_airport_id)
+    params.permit(:departing_airport_id, :arriving_airport_id, :start)
   end
 end
