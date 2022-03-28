@@ -1,2 +1,8 @@
-<h1>Flights#index</h1>
-<p>Find me in app/views/flights/index.html.erb</p>
+<h1>Search for flights</h1>
+
+<%= form_with url: "/flights", method: :get do |form| %>
+  <%= select_tag(:departing_airport_id, options_for_select(@flight_options)) %>
+  <%= select_tag(:arriving_airport_id, options_for_select(@flight_options)) %>
+
+  <%= form.submit "Search" %>
+<% end %>
