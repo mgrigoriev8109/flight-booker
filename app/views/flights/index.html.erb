@@ -1,8 +1,8 @@
 <h1>Search for flights</h1>
 
 <%= form_with url: "/flights", method: :get do |form| %>
-  <%= select_tag(:departing_airport_id, options_for_select(@flight_options)) %>
-  <%= select_tag(:arriving_airport_id, options_for_select(@flight_options)) %>
+  <%= select_tag(:departing_airport_id, options_for_select(@airport_options)) %>
+  <%= select_tag(:arriving_airport_id, options_for_select(@airport_options)) %>
 
   <%= form.submit "Search" %>
 <% end %>
