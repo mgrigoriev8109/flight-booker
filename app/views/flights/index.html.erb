@@ -1,4 +1,4 @@
-<h1>Search for flights</h1>
+<h1>Search Available Flights</h1>
 
 <%= form_with url: "/flights", method: :get do |form| %>
   <%= form.label "Departing Airport:" %>
@@ -16,7 +16,14 @@
   <%= form.submit "Search" %>
 <% end %>
 
-<h1>Flight results</h1>
+<h1>Select Flight</h1>
+
+<%= form_with url: "/bookings/new", method: :get do |form| %>
+
+  <%= form.collection_radio_buttons :flight_id, @flight_results, :id, :start %>
+
+<% end %>
+
 <% @flight_results.each do |flight| %>
   <ul>
     <li>
