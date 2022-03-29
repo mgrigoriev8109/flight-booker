@@ -13,14 +13,17 @@ Flight.create!([
   arriving_airport: Airport.find_by!(code: "NYC"),
   start: DateTime.new(2023,12,3,4),
   duration_minutes: 330 },
+
   {departing_airport: Airport.find_by!(code: "SFO"),
     arriving_airport: Airport.find_by!(code: "NYC"),
     start: DateTime.new(2023,12,3,5),
     duration_minutes: 330 },
+
   {departing_airport: Airport.find_by!(code: "NYC"),
   arriving_airport: Airport.find_by!(code: "SFO"),
   start: DateTime.new(2023,12,4,3),
   duration_minutes: 330 },
+  
   {departing_airport: Airport.find_by!(code: "NYC"),
     arriving_airport: Airport.find_by!(code: "SFO"),
     start: DateTime.new(2023,12,4,5),
