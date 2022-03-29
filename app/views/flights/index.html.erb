@@ -11,7 +11,7 @@
   <%= select_tag(:number_of_passengers, options_for_select([1, 2, 3, 4], params[:number_of_passengers])) %>
 
   <%= form.label "Departure Date:" %>
-  <%= select_tag(:start, options_from_collection_for_select(@flights, 'start', 'start')) %>
+  <%= select_tag(:start, options_for_select(@flights.collect{|flight| flight.start_date_formatted}.uniq)) %>
 
   <%= form.submit "Search" %>
 <% end %>
