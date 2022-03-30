@@ -5,7 +5,9 @@ class FlightsController < ApplicationController
     if flight_params.empty?
       @flight_results = []
     else
-      @flight_results = Flight.all.where(flight_params, departure_time_param)
+      departure_date = departure_time_param[:start].to_date
+      @flight_results = Flight.all.where(flight_params).where(start: departure_date.midnight..(departure_date.midnight + 1.day))
+
     end
   end
 

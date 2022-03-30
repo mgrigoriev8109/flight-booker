@@ -3,6 +3,6 @@ class Flight < ApplicationRecord
   belongs_to :departing_airport, class_name: "Airport", foreign_key: :departing_airport_id
 
   def start_date_formatted
-    self.start.strftime("%D")
+    self.start.to_date
   end
 end
