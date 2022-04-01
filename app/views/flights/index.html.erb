@@ -19,15 +19,12 @@
 <h1>Select Flight</h1>
 
 <%= form_with url: "/bookings/new", method: :get do |form| %>
-
-  <%= form.collection_radio_buttons :flight_id, @flight_results, :id, :start %>
-
+  <% @flight_results.each do |flight| %>
+    <ul>
+      <li>
+        <p><%= form.radio_button :flight_id, "Flight" %><%= Airport.all.find(flight.arriving_airport_id).name %> to <%= Airport.all.find(flight.departing_airport_id).name %> departing at <%= flight.start %></p>
+      </li>
+    </ul>
+  <% end %>
 <% end %>
 
-<% @flight_results.each do |flight| %>
-  <ul>
-    <li>
-      <%= flight %>
-    </li>
-  </ul>
-<% end %>
