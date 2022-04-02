@@ -23,7 +23,7 @@
     <ul>
       <li>
         <p><%= form.radio_button :booking, value: flight %><%= Airport.all.find(flight.arriving_airport_id).name %> to <%= Airport.all.find(flight.departing_airport_id).name %> departing at <%= flight.start %></p>
-        <%= form.hidden_field :number_of_passengers, value: @number_of_passengers %>
+        <%= form.hidden_field :passengers, value: @number_of_passengers %>
       </li>
     </ul>
   <% end %>
