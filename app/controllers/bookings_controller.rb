@@ -1,5 +1,6 @@
 class BookingsController < ApplicationController
   def new
+    debugger
     #will receive the flight ID and passenger number parameter
     #will use this to help render a form for a new booking
     #this form should display chosen date, airports, flight id

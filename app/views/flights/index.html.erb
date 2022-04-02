@@ -22,9 +22,11 @@
   <% @flight_results.each do |flight| %>
     <ul>
       <li>
-        <p><%= form.radio_button :flight_id, "Flight" %><%= Airport.all.find(flight.arriving_airport_id).name %> to <%= Airport.all.find(flight.departing_airport_id).name %> departing at <%= flight.start %></p>
+        <p><%= form.radio_button :booking, value: flight %><%= Airport.all.find(flight.arriving_airport_id).name %> to <%= Airport.all.find(flight.departing_airport_id).name %> departing at <%= flight.start %></p>
+        <%= form.hidden_field :number_of_passengers, value: @number_of_passengers %>
       </li>
     </ul>
   <% end %>
+  <%= form.submit "Search" %>
 <% end %>
 
