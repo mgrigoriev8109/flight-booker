@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def new
-    flight_id = booking_params
+    flight_id = booking_params[:flight_id]
+    passenger_quantity = passenger_params[:quantity]
     debugger
     #will receive the flight ID and passenger number parameter
     #will use this to help render a form for a new booking
@@ -14,12 +15,11 @@ class BookingsController < ApplicationController
   private 
 
   def booking_params
-    params.permit(:booking)
-    
+    params.permit(:flight_id)
   end
 
   def passenger_params
-    params.permit(:passengers)
+    params.permit(:quantity)
   end
 
 end
