@@ -1,7 +1,12 @@
 class BookingsController < ApplicationController
   def new
     @flight = Flight.find(booking_params[:flight_id])
-    passenger_quantity = passenger_params[:quantity]
+    @booking = Booking.new
+    number_of_passengers = passenger_params[:quantity].to_i
+    number_of_passengers.times do
+      @booking.passengers.build
+    end
+    debugger
     #will receive the flight ID and passenger number parameter
     #will use this to help render a form for a new booking
     #this form should display chosen date, airports, flight id
