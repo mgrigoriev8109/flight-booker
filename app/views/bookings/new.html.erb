@@ -1,15 +1,19 @@
 <h1>Create New Booking</h1>
-<%= form_with url: model: @booking do |form| %>
+<%= form_with model: @booking do |form| %>
   <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
   <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
   <p>Departure date and time: <%= @flight.start %></p>
 
-  <% @passengers.times do %>
+  <% passenger_number = 1 %>
 
-    <%= form.fields_for @booking.passengers.build do |passenger_form| %>
-      <%= passenger_form.text_field :name %>
-      <%= passenger_form.email_field :email %>
-    <% end %>
+  <%= form.fields_for :passengers do |passenger_form| %>
+    <P> Passenger <%= passenger_number%> </p>
+    <%= form.label :name, "Name:" %>
+    <%= passenger_form.text_field :name %>
+    <%= form.label :email, "Email:" %>
+    <%= passenger_form.email_field :email %>
+
+    <% passenger_number += 1 %>
   <% end %>
 
   <%= form.submit "Book Flight" %>
