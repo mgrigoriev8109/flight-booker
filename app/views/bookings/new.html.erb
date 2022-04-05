@@ -1,6 +1,16 @@
 <h1>Create New Booking</h1>
-<%= form_with url: "/bookings", method: :post do |form| %>
+<%= form_with url: model: @booking do |form| %>
   <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
   <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
   <p>Departure date and time: <%= @flight.start %></p>
- <% end %>
+
+  <% @passengers.times do %>
+
+    <%= form.fields_for @booking.passengers.build do |passenger_form| %>
+      <%= passenger_form.text_field :name %>
+      <%= passenger_form.email_field :email %>
+    <% end %>
+  <% end %>
+
+  <%= form.submit "Book Flight" %>
+<% end %>
