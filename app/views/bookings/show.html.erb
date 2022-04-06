@@ -1,1 +1,17 @@
-<h1>booking</h1>
+<h1>Booking Details</h1>
+
+<% flight = Flight.find(@booking.flight_id) %>
+<p>Departing from: <%= Airport.all.find(flight.departing_airport_id).name %></p>
+<p>Arriving at: <%= Airport.all.find(flight.arriving_airport_id).name %></p> 
+<p>Departure date and time: <%= flight.start %></p>
+
+<% passenger_number = 1 %>
+
+<% @booking.passengers.each do |passenger| %>
+  <p>Passenger <%= passenger_number %></p>
+  <ul>
+    <li>Name: <%= passenger.name %></li>
+    <li>Email: <%= passenger.email%></li>
+  </ul>
+  <% passenger_number += 1%>
+<% end %>
