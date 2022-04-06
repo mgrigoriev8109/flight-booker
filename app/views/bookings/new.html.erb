@@ -16,5 +16,7 @@
     <% passenger_number += 1 %>
   <% end %>
 
+  <%= form.hidden_field :flight_id, value: @flight.id %>
+
   <%= form.submit "Book Flight" %>
 <% end %>
