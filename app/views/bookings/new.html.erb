@@ -1,4 +1,4 @@
-<h1>Create New Booking</h1>
+<h1 class="form-header">Create New Booking</h1>
 <%= form_with model: @booking do |form| %>
   <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
   <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
