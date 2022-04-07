@@ -70,7 +70,18 @@ body {
   justify-content: center;;
   height: 100vh;
   margin: 0;
-  background-image: image-url('flight-finder.jpg');
+  background-image: url(flight_finder.jpg);
   background-size: cover;
   background-position: center;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	font-size: 1.25em;
+}
+
+
+.form-header, form {
+	color: rgb(255, 237, 204);
+  background-color: rgba(99, 99, 99, 0.5);
+  border-radius: 3px;
+  text-align: center;
+	padding: 10px;
 }
