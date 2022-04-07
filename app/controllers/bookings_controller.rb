@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
+
+  def index
+    @bookings = Booking.all
+  end
+
   def new
-    @flight = Flight.find(params[:flight_id])
+    @flight = find_flight
     @booking = Booking.new
     @number_of_passengers = quantity_params[:quantity].to_i
     @number_of_passengers.times do
@@ -29,7 +34,10 @@ class BookingsController < ApplicationController
   end
 
   def quantity_params
-    params.permit(:quantity)
+    params.permit(:flight_id, :commit, :quantity)
   end
 
+  def find_flight
+    Flight.find(params[:flight_id])
+  end
 end
