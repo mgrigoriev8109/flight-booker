@@ -1,22 +1,40 @@
 <h1 class="form-header">Create New Booking</h1>
+
 <%= form_with model: @booking do |form| %>
-  <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
-  <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
-  <p>Departure date and time: <%= @flight.start %></p>
+  <div class="form-row">
+    <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
+  </div>
+
+  <div class="form-row">
+    <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
+  </div>
+
+  <div class="form-row">
+    <p>Departure date and time: <%= @flight.start %></p>
+  </div>
 
   <% passenger_number = 1 %>
-
   <%= form.fields_for :passengers do |passenger_form| %>
-    <P> Passenger <%= passenger_number%> </p>
-    <%= form.label :name, "Name:" %>
-    <%= passenger_form.text_field :name %>
-    <%= form.label :email, "Email:" %>
-    <%= passenger_form.email_field :email %>
+    <div class="form-row">
+      <p> Passenger <%= passenger_number%> </p>
+    </div>
+
+    <div class="form-row">
+      <%= form.label :name, "Name:" %>
+      <%= passenger_form.text_field :name %>
+    </div>
+
+    <div class="form-row">
+      <%= form.label :email, "Email:" %>
+      <%= passenger_form.email_field :email %>
+    </div>
 
     <% passenger_number += 1 %>
   <% end %>
 
   <%= form.hidden_field :flight_id, value: @flight.id %>
-
-  <%= form.submit "Book Flight" %>
+  
+  <div class="form-row">
+    <%= form.submit "Book Flight" %>
+  </div>
 <% end %>
