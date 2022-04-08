@@ -86,10 +86,25 @@ body {
 	padding: 10px;
 }
 
+.form-header {
+	font-size: 1.28em;
+}
+
 form {
 	margin-bottom: 50px;
 }
 
-.form-header {
-	font-size: 1.28em;
+form > * {
+	padding: 3px;
+}
+
+.vertical-form {
+	color: rgb(255, 237, 204);
+  background-color: rgba(99, 99, 99, 0.6);
+  border-radius: 3px;
+}
+
+.form-row {
+	width: 100%;
+  padding: 5px;
 }
