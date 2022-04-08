@@ -22,7 +22,7 @@ class FlightsController < ApplicationController
   end
 
   def passenger_params
-    params.permit(:number_of_passengers)
+    params.permit(:number_of_passengers, :start, :commit)
   end
 
   def departure_time_params

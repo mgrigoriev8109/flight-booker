@@ -1,16 +1,16 @@
 <h1 class="form-header">Search Available Flights</h1>
 
-<%= form_with url: "/flights", method: :get do |form| %>
+<%= form_with model: @flight, method: :get do |form| %>
   <% airport_options = Airport.all.map{ |airport| [ airport.name, airport.id ] } %>
   
   <%= form.label "Departing Airport:" %>
-  <%= select_tag(:departing_airport_id, options_for_select(airport_options, params[:departing_airport_id])) %>
+  <%= select_tag(:departing_airport_id, options_for_select(airport_options, :departing_airport_id)) %>
 
   <%= form.label "Arriving Airport:" %>
-  <%= select_tag(:arriving_airport_id, options_for_select(airport_options, params[:arriving_airport_id])) %>
+  <%= select_tag(:arriving_airport_id, options_for_select(airport_options, :arriving_airport_id)) %>
 
   <%= form.label "Number of Passengers:" %>
-  <%= select_tag(:number_of_passengers, options_for_select([1, 2, 3, 4], params[:number_of_passengers])) %>
+  <%= select_tag(:number_of_passengers, options_for_select([1, 2, 3, 4], :number_of_passengers)) %>
 
   <%= form.label "Departure Date:" %>
   <%= select_tag(:start, options_for_select(@flights.collect{|flight| flight.start_date_formatted}.uniq)) %>
