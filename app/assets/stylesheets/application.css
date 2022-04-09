@@ -78,14 +78,14 @@ body {
 }
 
 
-.form-header, .form {
-  background-color: rgba(255, 255, 255, 0.404);
+.header, .form, .vertical-form {
+  background-color: rgba(255, 255, 255, 0.6);
   border-radius: 3px;
   text-align: center;
 	padding: 10px;
 }
 
-.form-header {
+.header, a {
 	font-size: 1.28em;
 }
 
@@ -97,15 +97,19 @@ body {
 	padding: 3px;
 }
 
-.vertical-form {
-  background-color: rgba(255, 255, 255, 0.404);
-  border-radius: 3px;
-	padding: 7px;
-}
-
 .form-row {
 	width: 100%;
   padding: 5px;
 	display: flex;
 	justify-content: space-between;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	padding: 10px;
+}
+
+a:hover {
+	color: white;
 }

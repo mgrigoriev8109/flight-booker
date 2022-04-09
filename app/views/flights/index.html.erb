@@ -1,4 +1,4 @@
-<h1 class="form-header">Search Available Flights</h1>
+<h1 class="header">Search Available Flights</h1>
 
 <%= form_with model: @flight, class: "form", method: :get do |form| %>
   <% airport_options = Airport.all.map{ |airport| [ airport.name, airport.id ] } %>
@@ -18,7 +18,7 @@
   <%= form.submit "Search" %>
 <% end %>
 
-<h1 class="form-header">Select Flight for Booking</h1>
+<h1 class="header">Select Flight for Booking</h1>
 <%= form_with url: "/bookings/new", class: "vertical-form", method: :get do |form| %>
 
 <% @flight_results.each do |flight| %>
@@ -29,8 +29,6 @@
   </div>
 <% end %>
 
-  <div class="form-row">
     <%= form.submit "Select Flight" %>
-  </div>
 <% end %>
 
