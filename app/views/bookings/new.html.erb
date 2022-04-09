@@ -1,16 +1,16 @@
 <h1 class="form-header">Create New Booking</h1>
 
-<%= form_with model: @booking, class: "vertical-form", do |form| %>
+<%= form_with model: @booking, class: "vertical-form" do |form| %>
   <div class="form-row">
-    <p>Departing from: <%= Airport.all.find(@flight.departing_airport_id).name %></p>
+    <p>Departing from:</p> <%= Airport.all.find(@flight.departing_airport_id).name %>
   </div>
 
   <div class="form-row">
-    <p>Arriving at: <%= Airport.all.find(@flight.arriving_airport_id).name %></p> 
+    <p>Arriving at:</p> <%= Airport.all.find(@flight.arriving_airport_id).name %> 
   </div>
 
   <div class="form-row">
-    <p>Departure date and time: <%= @flight.start %></p>
+    <p>Departure date and time</p>: <%= @flight.start %>
   </div>
 
   <% passenger_number = 1 %>

@@ -1,19 +1,33 @@
 <h1>All Bookings</h1>
 
 <% @bookings.each do |booking| %>
-  <% flight = Flight.find(booking.flight_id) %>
-  <p>Departing from: <%= Airport.all.find(flight.departing_airport_id).name %></p>
-  <p>Arriving at: <%= Airport.all.find(flight.arriving_airport_id).name %></p> 
-  <p>Departure date and time: <%= flight.start %></p>
+  <div class="vertical-form">
+    <% flight = Flight.find(booking.flight_id) %>
+    <div class="form-row">
+      <p>Departing from:</p> <%= Airport.all.find(flight.departing_airport_id).name %>
+    </div>
 
-  <% passenger_number = 1 %>
+    <div class="form-row">
+      <p>Arriving at:</p> <%= Airport.all.find(flight.arriving_airport_id).name %> 
+    </div>
 
-  <% booking.passengers.each do |passenger| %>
-    <p>Passenger <%= passenger_number %></p>
-    <ul>
-      <li>Name: <%= passenger.name %></li>
-      <li>Email: <%= passenger.email%></li>
-    </ul>
-    <% passenger_number += 1%>
-  <% end %>
+    <div class="form-row">
+      <p>Departure date and time</p>: <%= flight.start %>
+    </div>
+
+    <% passenger_number = 1 %>
+
+    <% booking.passengers.each do |passenger| %>
+      <div class="form-row">
+        <p>Passenger <%= passenger_number %></p>
+      </div>
+      <div class="form-row">
+        <p>Name:</p> <%= passenger.name %>
+      </div>
+      <div class="form-row">
+        <p>Email:</p> <%= passenger.email%>
+      </div>
+      <% passenger_number += 1%>
+    <% end %>
+  </div>
 <% end %>
