@@ -1,5 +1,6 @@
 <h1 class="header">Bookings</h1>
 
+<% @bookings = [] if @bookings.nil? %>
 <% @bookings.each do |booking| %>
   <div class="vertical-form">
     <% flight = Flight.find(booking.flight_id) %>
