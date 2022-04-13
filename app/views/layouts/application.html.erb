@@ -16,8 +16,9 @@
     <div class="vertical-form">
       <%= link_to "All Bookings", bookings_path %>
       <%= link_to "Search Flights", flights_path %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <% if flash[:notice] %>
+        <div class="notice"><%= flash[:notice] %></div>
+      <% end %>
     </div>
   </body>
 </html>
